@@ -1,0 +1,33 @@
+.tile {
+    background-color: #fdfbfb;
+    display: flex;
+    flex-direction: column;
+  /*padding: 10px;  */  
+  border: 1px solid black;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  /* box-shadow: 3px 3px grey; */
+  height: 300px;
+}
+
+.tile__border{
+    background-color: black;
+}
+
+.tile__content{
+
+}
+
+
+
+.tile__image>img{
+    object-fit: contain;
+    min-width: 190px;
+    height: 150px;
+    min-height: 150px;
+}
+
+.tile:hover{
+    opacity: 0.9;
+}

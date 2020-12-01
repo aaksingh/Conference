@@ -1,0 +1,14 @@
+ 
+.row__tile{
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;   
+}
+
+.row__tile::-webkit-scrollbar {
+  display: none;
+}
+
+.row__heading{
+  color:white;
+}

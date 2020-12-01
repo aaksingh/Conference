@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
+import Header from "./Header.js";
+import Row from "./Row.js";
 
+const url = "https://o136z8hk40.execute-api.us-east-1.amazonaws.com/dev/get-list-of-conferences";
 function App() {
+   const [freeConf, setfreeConf] = useState([]);
+   const [paidConf, setpaidConf] = useState([]);
+
+
+  useEffect(() => {
+    async function fetchData(){
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data);
+      
+      setfreeConf(data.free);
+      setpaidConf(data.paid);
+    }
+    fetchData();
+  },[]);
+
+  console.log(freeConf);
+  console.log(paidConf);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Row title="Paid" data_value={paidConf} />
+      <Row title="Free" data_value={freeConf} />
     </div>
   );
 }
